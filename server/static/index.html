@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Python 工作台 · 运行基础</title><link rel="stylesheet" href="/console.css"><script src="/console.js" defer></script></head>
+<body><main>
+<p class="eyebrow">CS50P · Python 工作台</p>
+<h1>先运行你的第一行 Python</h1>
+<p>这是已接入项目的运行基础。课程学习流程和导师功能将在设计确认后逐步加入。</p>
+<label for="code">Python 代码</label>
+<textarea id="code" spellcheck="false">name = input("你叫什么名字？ ")
+print(f"你好，{name}！")</textarea>
+<div class="inputs"><div><label for="stdin">预填输入（每行一次输入，可留空行）</label><textarea id="stdin" spellcheck="false">Python 学习者
+</textarea></div><div><label for="argv">命令行参数（JSON 字符串数组）</label><textarea id="argv" spellcheck="false">[]</textarea></div></div>
+<div class="actions"><button id="run" disabled>运行代码</button><button id="stop" disabled>停止</button><span id="status" role="status">正在连接运行服务…</span></div>
+<p class="hint">每次运行最长 5 秒，累计输出最多 100 KiB。预填输入用完后读取会到达 EOF。文件在本次临时目录中，结束后删除。</p>
+<div class="outputs"><section><h2>标准输出</h2><pre id="stdout"></pre></section><section><h2>错误输出</h2><pre id="stderr"></pre></section></div>
+</main></body></html>

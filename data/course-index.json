@@ -1,0 +1,663 @@
+{
+  "schemaVersion": 1,
+  "courseId": "cs50p",
+  "titleEn": "CS50's Introduction to Programming with Python",
+  "titleZh": "CS50P Python 入门",
+  "verifiedOn": "2026-10-08",
+  "verificationScope": "课程结构与链接核查；未验证用户所在地的视频播放，未验证官方提交或评分。",
+  "officialSources": {
+    "home": "https://cs50.harvard.edu/python/",
+    "weeks": "https://cs50.harvard.edu/python/weeks/",
+    "problemSets": "https://cs50.harvard.edu/python/psets/",
+    "finalProject": "https://cs50.harvard.edu/python/project/"
+  },
+  "userVideoEntry": {
+    "provider": "bilibili",
+    "url": "https://www.bilibili.com/video/BV1fFyJBFE92/?p=4",
+    "sourceCategory": "user_provided",
+    "sourceVerified": false,
+    "status": "unverified",
+    "weekMapping": null,
+    "reasonZh": "保存用户提供的入口；未读取页面正文，未核实分 P 与官方周次对应关系。"
+  },
+  "independentPractice": {
+    "exerciseCount": 30,
+    "status": "confirmed",
+    "sourceCategory": "workbench_original",
+    "reasonZh": "用户已确认每周三道，共三十道原创自主练习，题库见 data/learning-content.json。"
+  },
+  "units": [
+    {
+      "id": "week-0",
+      "order": 0,
+      "kind": "week",
+      "week": 0,
+      "titleEn": "Functions, Variables",
+      "titleZh": "函数与变量",
+      "summaryZh": "从输入和输出开始写程序，理解变量、数据类型以及函数如何接收参数并返回结果。",
+      "summaryCategory": "original_course_outline",
+      "topics": [
+        "输入与输出",
+        "变量与数据类型",
+        "字符串处理",
+        "数值运算",
+        "函数定义与返回值"
+      ],
+      "sourceVerified": true,
+      "verifiedOn": "2026-10-08",
+      "resources": {
+        "course": {
+          "url": "https://cs50.harvard.edu/python/weeks/0/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/0/"
+        },
+        "notes": {
+          "url": "https://cs50.harvard.edu/python/notes/0/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/notes/0/"
+        },
+        "problemSet": {
+          "url": "https://cs50.harvard.edu/python/psets/0/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/psets/0/"
+        },
+        "officialVideo": {
+          "url": "https://video.cs50.io/JP7ITIXGpHk",
+          "status": "player_page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/0/"
+        },
+        "youtube": {
+          "url": "https://youtu.be/JP7ITIXGpHk",
+          "status": "linked_on_official_page",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/0/"
+        }
+      }
+    },
+    {
+      "id": "week-1",
+      "order": 1,
+      "kind": "week",
+      "week": 1,
+      "titleEn": "Conditionals",
+      "titleZh": "条件判断",
+      "summaryZh": "根据比较结果选择程序分支，把需要做决定的日常规则表达成代码。",
+      "summaryCategory": "original_course_outline",
+      "topics": [
+        "if / elif / else",
+        "比较运算",
+        "布尔表达式",
+        "and / or",
+        "match"
+      ],
+      "sourceVerified": true,
+      "verifiedOn": "2026-10-08",
+      "resources": {
+        "course": {
+          "url": "https://cs50.harvard.edu/python/weeks/1/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/1/"
+        },
+        "notes": {
+          "url": "https://cs50.harvard.edu/python/notes/1/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/notes/1/"
+        },
+        "problemSet": {
+          "url": "https://cs50.harvard.edu/python/psets/1/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/psets/1/"
+        },
+        "officialVideo": {
+          "url": "https://video.cs50.io/_b6NgY_pMdw",
+          "status": "player_page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/1/"
+        },
+        "youtube": {
+          "url": "https://youtu.be/_b6NgY_pMdw",
+          "status": "linked_on_official_page",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/1/"
+        }
+      }
+    },
+    {
+      "id": "week-2",
+      "order": 2,
+      "kind": "week",
+      "week": 2,
+      "titleEn": "Loops",
+      "titleZh": "循环",
+      "summaryZh": "用循环减少重复代码，并逐个处理列表或字典中的数据。",
+      "summaryCategory": "original_course_outline",
+      "topics": [
+        "while 与 for",
+        "range",
+        "break 与 continue",
+        "列表",
+        "字典"
+      ],
+      "sourceVerified": true,
+      "verifiedOn": "2026-10-08",
+      "resources": {
+        "course": {
+          "url": "https://cs50.harvard.edu/python/weeks/2/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/2/"
+        },
+        "notes": {
+          "url": "https://cs50.harvard.edu/python/notes/2/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/notes/2/"
+        },
+        "problemSet": {
+          "url": "https://cs50.harvard.edu/python/psets/2/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/psets/2/"
+        },
+        "officialVideo": {
+          "url": "https://video.cs50.io/-7xg8pGcP6w",
+          "status": "player_page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/2/"
+        },
+        "youtube": {
+          "url": "https://youtu.be/-7xg8pGcP6w",
+          "status": "linked_on_official_page",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/2/"
+        }
+      }
+    },
+    {
+      "id": "week-3",
+      "order": 3,
+      "kind": "week",
+      "week": 3,
+      "titleEn": "Exceptions",
+      "titleZh": "异常处理",
+      "summaryZh": "读懂常见报错，在输入不符合预期时捕获异常并让程序有机会继续执行。",
+      "summaryCategory": "original_course_outline",
+      "topics": [
+        "语法错误",
+        "运行时异常",
+        "try / except",
+        "else",
+        "pass 与 raise"
+      ],
+      "sourceVerified": true,
+      "verifiedOn": "2026-10-08",
+      "resources": {
+        "course": {
+          "url": "https://cs50.harvard.edu/python/weeks/3/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/3/"
+        },
+        "notes": {
+          "url": "https://cs50.harvard.edu/python/notes/3/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/notes/3/"
+        },
+        "problemSet": {
+          "url": "https://cs50.harvard.edu/python/psets/3/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/psets/3/"
+        },
+        "officialVideo": {
+          "url": "https://video.cs50.io/LW7g1169v7w",
+          "status": "player_page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/3/"
+        },
+        "youtube": {
+          "url": "https://youtu.be/LW7g1169v7w",
+          "status": "linked_on_official_page",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/3/"
+        }
+      }
+    },
+    {
+      "id": "week-4",
+      "order": 4,
+      "kind": "week",
+      "week": 4,
+      "titleEn": "Libraries",
+      "titleZh": "库与模块",
+      "summaryZh": "导入现成模块，使用命令行参数和第三方包，并了解接口请求与 JSON 数据。",
+      "summaryCategory": "original_course_outline",
+      "topics": [
+        "import",
+        "标准库",
+        "命令行参数",
+        "pip 与第三方包",
+        "API 与 JSON",
+        "自定义模块"
+      ],
+      "sourceVerified": true,
+      "verifiedOn": "2026-10-08",
+      "resources": {
+        "course": {
+          "url": "https://cs50.harvard.edu/python/weeks/4/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/4/"
+        },
+        "notes": {
+          "url": "https://cs50.harvard.edu/python/notes/4/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/notes/4/"
+        },
+        "problemSet": {
+          "url": "https://cs50.harvard.edu/python/psets/4/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/psets/4/"
+        },
+        "officialVideo": {
+          "url": "https://video.cs50.io/MztLZWibctI",
+          "status": "player_page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/4/"
+        },
+        "youtube": {
+          "url": "https://youtu.be/MztLZWibctI",
+          "status": "linked_on_official_page",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/4/"
+        }
+      }
+    },
+    {
+      "id": "week-5",
+      "order": 5,
+      "kind": "week",
+      "week": 5,
+      "titleEn": "Unit Tests",
+      "titleZh": "单元测试",
+      "summaryZh": "把人工检查转换为可重复执行的测试，用断言和 pytest 检查函数的不同输入。",
+      "summaryCategory": "original_course_outline",
+      "topics": [
+        "assert",
+        "AssertionError",
+        "pytest",
+        "字符串测试",
+        "测试文件组织"
+      ],
+      "sourceVerified": true,
+      "verifiedOn": "2026-10-08",
+      "resources": {
+        "course": {
+          "url": "https://cs50.harvard.edu/python/weeks/5/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/5/"
+        },
+        "notes": {
+          "url": "https://cs50.harvard.edu/python/notes/5/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/notes/5/"
+        },
+        "problemSet": {
+          "url": "https://cs50.harvard.edu/python/psets/5/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/psets/5/"
+        },
+        "officialVideo": {
+          "url": "https://video.cs50.io/tIrcxwLqzjQ",
+          "status": "player_page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/5/"
+        },
+        "youtube": {
+          "url": "https://youtu.be/tIrcxwLqzjQ",
+          "status": "linked_on_official_page",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/5/"
+        }
+      }
+    },
+    {
+      "id": "week-6",
+      "order": 6,
+      "kind": "week",
+      "week": 6,
+      "titleEn": "File I/O",
+      "titleZh": "文件读写",
+      "summaryZh": "将数据保存到文件并重新读取，接触文本、CSV 表格和图片文件。",
+      "summaryCategory": "original_course_outline",
+      "topics": [
+        "open 与 with",
+        "文本文件",
+        "CSV 读写",
+        "排序",
+        "Pillow 图片处理"
+      ],
+      "sourceVerified": true,
+      "verifiedOn": "2026-10-08",
+      "resources": {
+        "course": {
+          "url": "https://cs50.harvard.edu/python/weeks/6/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/6/"
+        },
+        "notes": {
+          "url": "https://cs50.harvard.edu/python/notes/6/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/notes/6/"
+        },
+        "problemSet": {
+          "url": "https://cs50.harvard.edu/python/psets/6/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/psets/6/"
+        },
+        "officialVideo": {
+          "url": "https://video.cs50.io/KD-Yoel6EVQ",
+          "status": "player_page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/6/"
+        },
+        "youtube": {
+          "url": "https://youtu.be/KD-Yoel6EVQ",
+          "status": "linked_on_official_page",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/6/"
+        }
+      }
+    },
+    {
+      "id": "week-7",
+      "order": 7,
+      "kind": "week",
+      "week": 7,
+      "titleEn": "Regular Expressions",
+      "titleZh": "正则表达式",
+      "summaryZh": "用文本模式校验、查找和提取数据，避免只凭单个字符判断输入是否合法。",
+      "summaryCategory": "original_course_outline",
+      "topics": [
+        "re 模块",
+        "搜索与匹配",
+        "字符模式",
+        "捕获组",
+        "替换与拆分"
+      ],
+      "sourceVerified": true,
+      "verifiedOn": "2026-10-08",
+      "resources": {
+        "course": {
+          "url": "https://cs50.harvard.edu/python/weeks/7/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/7/"
+        },
+        "notes": {
+          "url": "https://cs50.harvard.edu/python/notes/7/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/notes/7/"
+        },
+        "problemSet": {
+          "url": "https://cs50.harvard.edu/python/psets/7/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/psets/7/"
+        },
+        "officialVideo": {
+          "url": "https://video.cs50.io/hy3sd9MOAcc",
+          "status": "player_page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/7/"
+        },
+        "youtube": {
+          "url": "https://youtu.be/hy3sd9MOAcc",
+          "status": "linked_on_official_page",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/7/"
+        }
+      }
+    },
+    {
+      "id": "week-8",
+      "order": 8,
+      "kind": "week",
+      "week": 8,
+      "titleEn": "Object-Oriented Programming",
+      "titleZh": "面向对象编程",
+      "summaryZh": "将有关联的数据和行为组织到类中，理解对象、属性、方法以及继承。",
+      "summaryCategory": "original_course_outline",
+      "topics": [
+        "类与对象",
+        "实例属性与方法",
+        "构造方法",
+        "属性与装饰器",
+        "类方法与静态方法",
+        "继承",
+        "运算符重载"
+      ],
+      "sourceVerified": true,
+      "verifiedOn": "2026-10-08",
+      "resources": {
+        "course": {
+          "url": "https://cs50.harvard.edu/python/weeks/8/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/8/"
+        },
+        "notes": {
+          "url": "https://cs50.harvard.edu/python/notes/8/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/notes/8/"
+        },
+        "problemSet": {
+          "url": "https://cs50.harvard.edu/python/psets/8/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/psets/8/"
+        },
+        "officialVideo": {
+          "url": "https://video.cs50.io/e4fwY9ZsxPw",
+          "status": "player_page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/8/"
+        },
+        "youtube": {
+          "url": "https://youtu.be/e4fwY9ZsxPw",
+          "status": "linked_on_official_page",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/8/"
+        }
+      }
+    },
+    {
+      "id": "week-9",
+      "order": 9,
+      "kind": "week",
+      "week": 9,
+      "titleEn": "Et Cetera",
+      "titleZh": "更多 Python 特性",
+      "summaryZh": "继续学习能改善程序组织和表达的 Python 特性，为独立项目补充工具。",
+      "summaryCategory": "original_course_outline",
+      "topics": [
+        "集合",
+        "类型提示",
+        "文档字符串",
+        "argparse",
+        "参数解包",
+        "推导式",
+        "生成器与迭代器"
+      ],
+      "sourceVerified": true,
+      "verifiedOn": "2026-10-08",
+      "resources": {
+        "course": {
+          "url": "https://cs50.harvard.edu/python/weeks/9/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/9/"
+        },
+        "notes": {
+          "url": "https://cs50.harvard.edu/python/notes/9/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/notes/9/"
+        },
+        "problemSet": {
+          "url": null,
+          "status": "not_applicable",
+          "sourceVerified": false,
+          "verifiedOn": null,
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/9/",
+          "reasonZh": "官方 Week 9 页面指向 Final Project；官方 Problem Sets 目录仅列出 0–8。",
+          "absenceVerified": true
+        },
+        "officialVideo": {
+          "url": "https://video.cs50.io/6pgodt1mezg",
+          "status": "player_page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/9/"
+        },
+        "youtube": {
+          "url": "https://youtu.be/6pgodt1mezg",
+          "status": "linked_on_official_page",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/weeks/9/"
+        }
+      }
+    },
+    {
+      "id": "final-project",
+      "order": 10,
+      "kind": "project",
+      "week": null,
+      "titleEn": "Final Project",
+      "titleZh": "最终项目",
+      "summaryZh": "独立完成自己的 Python 程序，为自定义函数编写 pytest 测试，并准备项目说明与演示。",
+      "summaryCategory": "original_course_outline",
+      "topics": [
+        "项目目标与范围",
+        "Python 程序",
+        "自定义函数",
+        "pytest 测试",
+        "依赖声明",
+        "README 与演示"
+      ],
+      "sourceVerified": true,
+      "verifiedOn": "2026-10-08",
+      "resources": {
+        "course": {
+          "url": "https://cs50.harvard.edu/python/project/",
+          "status": "page_verified",
+          "sourceVerified": true,
+          "verifiedOn": "2026-10-08",
+          "evidenceUrl": "https://cs50.harvard.edu/python/project/"
+        },
+        "notes": {
+          "url": null,
+          "status": "not_listed",
+          "sourceVerified": false,
+          "verifiedOn": null,
+          "evidenceUrl": "https://cs50.harvard.edu/python/project/",
+          "reasonZh": "官方最终项目页未列出独立 Notes 页面。",
+          "absenceVerified": true
+        },
+        "problemSet": {
+          "url": null,
+          "status": "not_applicable",
+          "sourceVerified": false,
+          "verifiedOn": null,
+          "evidenceUrl": "https://cs50.harvard.edu/python/project/",
+          "reasonZh": "最终项目是独立项目任务，不是 Problem Set 9。",
+          "absenceVerified": true
+        },
+        "officialVideo": {
+          "url": null,
+          "status": "not_listed",
+          "sourceVerified": false,
+          "verifiedOn": null,
+          "evidenceUrl": "https://cs50.harvard.edu/python/project/",
+          "reasonZh": "官方最终项目页未列出专属课程讲座视频；要求学习者制作自己的项目演示。",
+          "absenceVerified": true
+        },
+        "youtube": {
+          "url": null,
+          "status": "not_listed",
+          "sourceVerified": false,
+          "verifiedOn": null,
+          "evidenceUrl": "https://cs50.harvard.edu/python/project/",
+          "reasonZh": "未列出专属官方讲座 YouTube 链接。",
+          "absenceVerified": true
+        }
+      }
+    }
+  ]
+}

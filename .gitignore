@@ -1,0 +1,16 @@
+.venv-server/
+.venv-learning/
+.venv-learning-store-*/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.runner-tmp/
+local-data/
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo
+
+.env
+.env.*
+*.log
+stage_manifest.json

@@ -1,0 +1,11 @@
+:root { color-scheme: light; font-family: system-ui, "Microsoft YaHei", sans-serif; background: #f5f7fb; color: #172a45; }
+body { margin: 0; padding: 32px 20px; } main { max-width: 1100px; margin: auto; }
+h1 { margin: 8px 0; font-size: clamp(25px, 4vw, 38px); } h2 { font-size: 17px; }
+.eyebrow { color: #4167aa; font-weight: 700; } label { display: block; margin: 20px 0 8px; font-weight: 600; }
+textarea { box-sizing: border-box; width: 100%; padding: 16px; border: 1px solid #cbd5e5; border-radius: 10px; font: 16px/1.6 Consolas, monospace; background: white; color: #172a45; }
+#code { min-height: 200px; } .inputs, .outputs { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.inputs textarea { min-height: 96px; } .actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 20px; }
+button { padding: 10px 22px; border: 0; border-radius: 8px; background: #275bd8; color: white; font: inherit; cursor: pointer; }
+#stop { background: #57677e; } button:disabled { opacity: .45; cursor: default; } .hint { color: #61708a; font-size: 14px; }
+pre { min-height: 120px; max-height: 450px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; background: #12233c; color: #e0edff; padding: 16px; border-radius: 10px; }
+@media (max-width: 700px) { .inputs, .outputs { grid-template-columns: 1fr; } body { padding: 20px 14px; } }

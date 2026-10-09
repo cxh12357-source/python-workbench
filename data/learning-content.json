@@ -1,0 +1,2078 @@
+{
+  "schema_version": 1,
+  "source_type": "original",
+  "language": "zh-CN",
+  "course_id": "cs50p",
+  "required_packages": [
+    "pytest",
+    "Pillow"
+  ],
+  "grading_note": "本地判题检查练习约定的行为，不代表 CS50 官方评分。所有题目为原创辅助练习。",
+  "units": [
+    {
+      "unit_id": "week-0",
+      "points": [
+        {
+          "title": "代码是可执行的步骤",
+          "body": "Python 从上往下执行代码。print 把内容写到输出区；input 等待你输入一行并按回车。先运行，再只改一个地方观察结果。",
+          "example": "print(\"你好，Python！\")"
+        },
+        {
+          "title": "变量保存数据",
+          "body": "等号右边先计算，结果再放进左边的变量。input 得到的是字符串；需要计算时，用 int 或 float 转为数字。",
+          "example": "count = int(input(\"数量：\"))"
+        },
+        {
+          "title": "函数让步骤有名字",
+          "body": "def 定义函数，缩进表示哪些步骤属于它。参数是函数的输入；return 把计算结果交给调用者。print 和 return 的用途不同。",
+          "example": "def double(number):\n    return number * 2"
+        },
+        {
+          "title": "字符串可以整理和组合",
+          "body": "strip 去掉两端空白，lower 转成小写，title 让单词按标题格式显示。f 字符串把变量放进文字。",
+          "example": "name = \"  lin  \".strip().title()\nprint(f\"你好，{name}！\")"
+        }
+      ],
+      "examples": [
+        {
+          "id": "week-0-example-1",
+          "title": "输入自己的名字",
+          "code": "name = input(\"你的名字：\").strip()\nprint(f\"你好，{name}！\")\n",
+          "stdin": "小林\n"
+        },
+        {
+          "id": "week-0-example-2",
+          "title": "用函数计算两本书的费用",
+          "code": "def cost(price, count):\n    return round(price * count, 2)\n\nprint(cost(12.5, 2))\n"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "week-0-ex-1",
+          "unit_id": "week-0",
+          "source_type": "original",
+          "title": "给学习伙伴打招呼",
+          "prompt": "读取一行姓名，去掉两端空白，然后输出“你好，姓名！”并换行。姓名中间的空格保留；不要输出输入提示文字。",
+          "starter_code": "name = input()\n# 整理姓名，再输出问候\n",
+          "hints": [
+            "input 得到字符串，print 默认在结尾换行。",
+            "使用 strip 去掉姓名两端的空白。",
+            "把整理后的 name 放入 f\"你好，{name}！\"，再交给 print。"
+          ],
+          "solution": "name = input().strip()\nprint(f\"你好，{name}！\")\n",
+          "wrong_solution": "name = input()\nprint(f\"你好，{name}！\")\n",
+          "kind": "stdout",
+          "tests": [
+            {
+              "name": "普通姓名",
+              "stdin": "小林\n",
+              "argv": [],
+              "expected": "你好，小林！\n"
+            },
+            {
+              "name": "两端有空白",
+              "stdin": "  李 小明  \n",
+              "argv": [],
+              "expected": "你好，李 小明！\n"
+            },
+            {
+              "name": "空姓名",
+              "stdin": "\n",
+              "argv": [],
+              "expected": "你好，！\n"
+            }
+          ]
+        },
+        {
+          "id": "week-0-ex-2",
+          "unit_id": "week-0",
+          "source_type": "original",
+          "title": "计算文具总价",
+          "prompt": "实现 total_cost(price, quantity)：返回单价乘数量的结果，四舍五入到小数点后两位。单价和数量都不小于 0，数量为整数。函数只返回数字，不打印。",
+          "starter_code": "def total_cost(price, quantity):\n    # 返回保留两位小数的总价\n    pass\n",
+          "hints": [
+            "先计算 price * quantity。",
+            "round(value, 2) 可以把数字舍入到两位小数。",
+            "用 return round(price * quantity, 2) 返回结果。"
+          ],
+          "solution": "def total_cost(price, quantity):\n    return round(price * quantity, 2)\n",
+          "wrong_solution": "def total_cost(price, quantity):\n    return round(price + quantity, 2)\n",
+          "kind": "function",
+          "function_name": "total_cost",
+          "tests": [
+            {
+              "name": "多件文具",
+              "args": [
+                2.75,
+                4
+              ],
+              "expected": 11,
+              "approx": 1E-06
+            },
+            {
+              "name": "数量为零",
+              "args": [
+                8.8,
+                0
+              ],
+              "expected": 0,
+              "approx": 1E-06
+            },
+            {
+              "name": "需要舍入",
+              "args": [
+                1.237,
+                3
+              ],
+              "expected": 3.71,
+              "approx": 1E-06
+            }
+          ]
+        },
+        {
+          "id": "week-0-ex-3",
+          "unit_id": "week-0",
+          "source_type": "original",
+          "title": "整理账号标签",
+          "prompt": "实现 account_label(text)：去掉字符串两端空白，再转为小写并返回。不要删除中间的空格，空白字符串返回空字符串。",
+          "starter_code": "def account_label(text):\n    pass\n",
+          "hints": [
+            "先整理边缘空白，再处理大小写。",
+            "strip 和 lower 都会返回处理后的新字符串。",
+            "可以连续调用 text.strip().lower()，并返回结果。"
+          ],
+          "solution": "def account_label(text):\n    return text.strip().lower()\n",
+          "wrong_solution": "def account_label(text):\n    return text.lower()\n",
+          "kind": "function",
+          "function_name": "account_label",
+          "tests": [
+            {
+              "name": "大小写与空白",
+              "args": [
+                "  PYTHON  "
+              ],
+              "expected": "python"
+            },
+            {
+              "name": "保留中间空格",
+              "args": [
+                " Learn Python "
+              ],
+              "expected": "learn python"
+            },
+            {
+              "name": "全为空白",
+              "args": [
+                " \t "
+              ],
+              "expected": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "week-1",
+      "points": [
+        {
+          "title": "条件让程序选择路线",
+          "body": "if 的条件为真时执行对应缩进块。elif 继续检查其他情况；else 接住前面的条件都不成立的情况。分支从上往下判断。"
+        },
+        {
+          "title": "比较和赋值是两种操作",
+          "body": "= 保存值；== 比较是否相等。>= 包含边界值，> 不包含边界值。把刚好处于门槛的数字单独试一次。",
+          "example": "print(60 >= 60)\nprint(60 > 60)"
+        },
+        {
+          "title": "组合条件",
+          "body": "and 要求两边都成立，or 只要一边成立。布尔值 True 和 False 也可以直接作为函数返回值。",
+          "example": "inside = value >= low and value <= high"
+        }
+      ],
+      "examples": [
+        {
+          "id": "week-1-example-1",
+          "title": "根据学习时长给出反馈",
+          "code": "minutes = int(input(\"学习了几分钟：\"))\nif minutes >= 30:\n    print(\"今天的练习已达标\")\nelif minutes > 0:\n    print(\"已经开始了，继续一点点\")\nelse:\n    print(\"从打开第一课开始\")\n",
+          "stdin": "30\n"
+        },
+        {
+          "id": "week-1-example-2",
+          "title": "判断预约时间是否在范围内",
+          "code": "def within_hours(hour):\n    return 9 <= hour <= 17\n\nprint(within_hours(9))\nprint(within_hours(18))\n"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "week-1-ex-1",
+          "unit_id": "week-1",
+          "source_type": "original",
+          "title": "书店运费",
+          "prompt": "实现 shipping_fee(total)：订单金额大于或等于 100 时运费为 0，否则为 10。金额不小于 0；返回整数。",
+          "starter_code": "def shipping_fee(total):\n    pass\n",
+          "hints": [
+            "把免运费条件放进 if。",
+            "“大于或等于”应包含 100。",
+            "金额 >= 100 返回 0，其他情况返回 10。"
+          ],
+          "solution": "def shipping_fee(total):\n    if total >= 100:\n        return 0\n    return 10\n",
+          "wrong_solution": "def shipping_fee(total):\n    if total > 100:\n        return 0\n    return 10\n",
+          "kind": "function",
+          "function_name": "shipping_fee",
+          "tests": [
+            {
+              "name": "低于门槛",
+              "args": [
+                99.9
+              ],
+              "expected": 10
+            },
+            {
+              "name": "正好门槛",
+              "args": [
+                100
+              ],
+              "expected": 0
+            },
+            {
+              "name": "高于门槛",
+              "args": [
+                150
+              ],
+              "expected": 0
+            },
+            {
+              "name": "零金额",
+              "args": [
+                0
+              ],
+              "expected": 10
+            }
+          ]
+        },
+        {
+          "id": "week-1-ex-2",
+          "unit_id": "week-1",
+          "source_type": "original",
+          "title": "学习时长标签",
+          "prompt": "实现 study_label(minutes)：0 分钟返回“未开始”；1–29 分钟返回“已开始”；30 分钟及以上返回“已达标”。minutes 是不小于 0 的整数。",
+          "starter_code": "def study_label(minutes):\n    pass\n",
+          "hints": [
+            "共有三个互斥的情况，可以使用 if / elif / else。",
+            "先单独判断 0，再判断小于 30。",
+            "30 应落到“已达标”分支，而不是“已开始”。"
+          ],
+          "solution": "def study_label(minutes):\n    if minutes == 0:\n        return \"未开始\"\n    elif minutes < 30:\n        return \"已开始\"\n    else:\n        return \"已达标\"\n",
+          "wrong_solution": "def study_label(minutes):\n    if minutes == 0:\n        return \"未开始\"\n    elif minutes <= 30:\n        return \"已开始\"\n    return \"已达标\"\n",
+          "kind": "function",
+          "function_name": "study_label",
+          "tests": [
+            {
+              "name": "未学习",
+              "args": [
+                0
+              ],
+              "expected": "未开始"
+            },
+            {
+              "name": "刚开始",
+              "args": [
+                1
+              ],
+              "expected": "已开始"
+            },
+            {
+              "name": "差一分钟",
+              "args": [
+                29
+              ],
+              "expected": "已开始"
+            },
+            {
+              "name": "达到门槛",
+              "args": [
+                30
+              ],
+              "expected": "已达标"
+            },
+            {
+              "name": "超过门槛",
+              "args": [
+                90
+              ],
+              "expected": "已达标"
+            }
+          ]
+        },
+        {
+          "id": "week-1-ex-3",
+          "unit_id": "week-1",
+          "source_type": "original",
+          "title": "测量值在范围内吗",
+          "prompt": "实现 within_limit(value, low, high)：当 low <= value <= high 时返回 True，否则返回 False。low 不大于 high；两端都算范围内。",
+          "starter_code": "def within_limit(value, low, high):\n    pass\n",
+          "hints": [
+            "比较结果本身就是布尔值。",
+            "同时满足下限和上限，用 and 组合。",
+            "使用 >= 和 <=，让两端也通过。"
+          ],
+          "solution": "def within_limit(value, low, high):\n    return value >= low and value <= high\n",
+          "wrong_solution": "def within_limit(value, low, high):\n    return value > low and value < high\n",
+          "kind": "function",
+          "function_name": "within_limit",
+          "tests": [
+            {
+              "name": "范围中间",
+              "args": [
+                5,
+                0,
+                10
+              ],
+              "expected": true
+            },
+            {
+              "name": "下边界",
+              "args": [
+                0,
+                0,
+                10
+              ],
+              "expected": true
+            },
+            {
+              "name": "上边界",
+              "args": [
+                10,
+                0,
+                10
+              ],
+              "expected": true
+            },
+            {
+              "name": "超出范围",
+              "args": [
+                11,
+                0,
+                10
+              ],
+              "expected": false
+            },
+            {
+              "name": "范围只有一个值",
+              "args": [
+                3,
+                3,
+                3
+              ],
+              "expected": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "week-2",
+      "points": [
+        {
+          "title": "for 遍历一组数据",
+          "body": "for 会把序列里的每个值依次放进变量。range(n) 产生从 0 到 n-1 的整数；需要包含 n 时，写 range(n + 1)。"
+        },
+        {
+          "title": "累加与筛选",
+          "body": "累加器通常从 0 开始，每次循环把新结果加进去。筛选列表时先建立空列表，再在条件成立时 append。",
+          "example": "kept = []\nfor text in lines:\n    if text.strip() != \"\":\n        kept.append(text.strip())"
+        },
+        {
+          "title": "while 适合重复直到条件改变",
+          "body": "while 每一轮都会重新检查条件。确认循环体能改变条件；break 可以结束循环，continue 跳过当前轮后面的步骤。"
+        }
+      ],
+      "examples": [
+        {
+          "id": "week-2-example-1",
+          "title": "列出待办清单",
+          "code": "tasks = [\"看视频\", \"改示例\", \"做练习\"]\nfor task in tasks:\n    print(f\"待办：{task}\")\n"
+        },
+        {
+          "id": "week-2-example-2",
+          "title": "累计前三天的学习分钟",
+          "code": "minutes = [15, 20, 30]\ntotal = 0\nfor value in minutes:\n    total += value\nprint(f\"累计 {total} 分钟\")\n"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "week-2-ex-1",
+          "unit_id": "week-2",
+          "source_type": "original",
+          "title": "累计偶数积分",
+          "prompt": "实现 even_total(n)：返回从 0 到 n（包含 n）的所有偶数之和。n 是不小于 0 的整数。",
+          "starter_code": "def even_total(n):\n    total = 0\n    # 遍历并累计偶数\n    return total\n",
+          "hints": [
+            "用 range 遍历，使用 % 2 判断偶数。",
+            "需要包含 n，因此 range 的终点应为 n + 1。",
+            "偶数时把 number 加入 total，循环完成后再 return。"
+          ],
+          "solution": "def even_total(n):\n    total = 0\n    for number in range(n + 1):\n        if number % 2 == 0:\n            total += number\n    return total\n",
+          "wrong_solution": "def even_total(n):\n    total = 0\n    for number in range(n):\n        if number % 2 == 0:\n            total += number\n    return total\n",
+          "kind": "function",
+          "function_name": "even_total",
+          "tests": [
+            {
+              "name": "包含偶数终点",
+              "args": [
+                6
+              ],
+              "expected": 12
+            },
+            {
+              "name": "奇数终点",
+              "args": [
+                7
+              ],
+              "expected": 12
+            },
+            {
+              "name": "零",
+              "args": [
+                0
+              ],
+              "expected": 0
+            },
+            {
+              "name": "最小正偶数",
+              "args": [
+                2
+              ],
+              "expected": 2
+            }
+          ]
+        },
+        {
+          "id": "week-2-ex-2",
+          "unit_id": "week-2",
+          "source_type": "original",
+          "title": "统计某个课程标签",
+          "prompt": "实现 count_tag(tags, target)：返回列表 tags 中与 target 完全相等的元素数量。区分大小写；空列表返回 0。",
+          "starter_code": "def count_tag(tags, target):\n    pass\n",
+          "hints": [
+            "准备一个从 0 开始的计数器。",
+            "遍历 tags，只在 tag == target 时累计。",
+            "每次匹配用 count += 1，而不是直接设为 1。"
+          ],
+          "solution": "def count_tag(tags, target):\n    count = 0\n    for tag in tags:\n        if tag == target:\n            count += 1\n    return count\n",
+          "wrong_solution": "def count_tag(tags, target):\n    count = 0\n    for tag in tags:\n        if tag == target:\n            count = 1\n    return count\n",
+          "kind": "function",
+          "function_name": "count_tag",
+          "tests": [
+            {
+              "name": "重复标签",
+              "args": [
+                [
+                  "python",
+                  "web",
+                  "python"
+                ],
+                "python"
+              ],
+              "expected": 2
+            },
+            {
+              "name": "大小写不同",
+              "args": [
+                [
+                  "Python",
+                  "python"
+                ],
+                "python"
+              ],
+              "expected": 1
+            },
+            {
+              "name": "没有匹配",
+              "args": [
+                [
+                  "web"
+                ],
+                "python"
+              ],
+              "expected": 0
+            },
+            {
+              "name": "空列表",
+              "args": [
+                [],
+                "python"
+              ],
+              "expected": 0
+            }
+          ]
+        },
+        {
+          "id": "week-2-ex-3",
+          "unit_id": "week-2",
+          "source_type": "original",
+          "title": "保留有内容的笔记",
+          "prompt": "实现 clean_notes(lines)：去掉每个字符串两端的空白，丢弃整理后为空的项，按原顺序返回剩下的字符串列表。不要改变中间的空格。",
+          "starter_code": "def clean_notes(lines):\n    notes = []\n    return notes\n",
+          "hints": [
+            "先建空列表 notes。",
+            "每一项先 strip，再判断是否为空。",
+            "只对非空项调用 notes.append(text)，最后返回 notes。"
+          ],
+          "solution": "def clean_notes(lines):\n    notes = []\n    for line in lines:\n        text = line.strip()\n        if text != \"\":\n            notes.append(text)\n    return notes\n",
+          "wrong_solution": "def clean_notes(lines):\n    notes = []\n    for line in lines:\n        notes.append(line.strip())\n    return notes\n",
+          "kind": "function",
+          "function_name": "clean_notes",
+          "tests": [
+            {
+              "name": "混合内容",
+              "args": [
+                [
+                  "  函数  ",
+                  " ",
+                  "变量",
+                  "",
+                  " A B "
+                ]
+              ],
+              "expected": [
+                "函数",
+                "变量",
+                "A B"
+              ]
+            },
+            {
+              "name": "全是空白",
+              "args": [
+                [
+                  "",
+                  "\t",
+                  " "
+                ]
+              ],
+              "expected": []
+            },
+            {
+              "name": "空列表",
+              "args": [
+                []
+              ],
+              "expected": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "week-3",
+      "points": [
+        {
+          "title": "先读异常名称，再看出错位置",
+          "body": "SyntaxError 常见于引号、括号或缩进写错；ValueError 常见于把无效文字转换成数字。输出区里的回溯会告诉你报错类型和对应行。"
+        },
+        {
+          "title": "只捕获能处理的异常",
+          "body": "try 放可能出错的代码，except 指明你知道如何处理的异常。避免不加区分地吞掉所有错误；那样会隐藏真正需要修复的问题。",
+          "example": "try:\n    count = int(text)\nexcept ValueError:\n    count = 0"
+        },
+        {
+          "title": "失败时可以重新输入",
+          "body": "把输入放进 while 循环。转换失败时给出反馈，成功且满足条件后 break。ZeroDivisionError 表示尝试除以零。"
+        }
+      ],
+      "examples": [
+        {
+          "id": "week-3-example-1",
+          "title": "输入不是数字时给出提醒",
+          "code": "text = input(\"学习分钟：\")\ntry:\n    minutes = int(text)\n    print(f\"记录 {minutes} 分钟\")\nexcept ValueError:\n    print(\"请使用整数，例如 30\")\n",
+          "stdin": "很多\n"
+        },
+        {
+          "id": "week-3-example-2",
+          "title": "处理除数为零",
+          "code": "def safe_average(total, count):\n    try:\n        return total / count\n    except ZeroDivisionError:\n        return None\n\nprint(safe_average(90, 3))\nprint(safe_average(90, 0))\n"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "week-3-ex-1",
+          "unit_id": "week-3",
+          "source_type": "original",
+          "title": "把输入转换成数量",
+          "prompt": "实现 parse_count(text)：能被 int 转换时返回对应整数；发生 ValueError 时返回 0。允许负整数和两端空白；小数文字如“2.5”视为无效。",
+          "starter_code": "def parse_count(text):\n    pass\n",
+          "hints": [
+            "int(text) 可能抛出 ValueError。",
+            "只把转换操作放进 try，转换失败时返回 0。",
+            "有效输入不要额外改值；负数也应原样返回。"
+          ],
+          "solution": "def parse_count(text):\n    try:\n        return int(text)\n    except ValueError:\n        return 0\n",
+          "wrong_solution": "def parse_count(text):\n    return int(text)\n",
+          "kind": "function",
+          "function_name": "parse_count",
+          "tests": [
+            {
+              "name": "整数",
+              "args": [
+                "12"
+              ],
+              "expected": 12
+            },
+            {
+              "name": "负数与空白",
+              "args": [
+                "  -3  "
+              ],
+              "expected": -3
+            },
+            {
+              "name": "无效文字",
+              "args": [
+                "abc"
+              ],
+              "expected": 0
+            },
+            {
+              "name": "小数文字",
+              "args": [
+                "2.5"
+              ],
+              "expected": 0
+            },
+            {
+              "name": "空输入",
+              "args": [
+                ""
+              ],
+              "expected": 0
+            }
+          ]
+        },
+        {
+          "id": "week-3-ex-2",
+          "unit_id": "week-3",
+          "source_type": "original",
+          "title": "安全计算每份金额",
+          "prompt": "实现 amount_per_person(total, people)：返回 total / people；people 为 0 时捕获 ZeroDivisionError 并返回 None。其余参数为数字，不需要舍入。",
+          "starter_code": "def amount_per_person(total, people):\n    pass\n",
+          "hints": [
+            "问题发生在除法语句。",
+            "把除法放入 try，捕获 ZeroDivisionError。",
+            "零人数的约定返回值是 None；它和数字 0 不相同。"
+          ],
+          "solution": "def amount_per_person(total, people):\n    try:\n        return total / people\n    except ZeroDivisionError:\n        return None\n",
+          "wrong_solution": "def amount_per_person(total, people):\n    if people == 0:\n        return 0\n    return total / people\n",
+          "kind": "function",
+          "function_name": "amount_per_person",
+          "tests": [
+            {
+              "name": "普通分摊",
+              "args": [
+                60,
+                3
+              ],
+              "expected": 20
+            },
+            {
+              "name": "没有人",
+              "args": [
+                60,
+                0
+              ],
+              "expected": null
+            },
+            {
+              "name": "零金额",
+              "args": [
+                0,
+                2
+              ],
+              "expected": 0
+            },
+            {
+              "name": "负金额",
+              "args": [
+                -10,
+                2
+              ],
+              "expected": -5
+            }
+          ]
+        },
+        {
+          "id": "week-3-ex-3",
+          "unit_id": "week-3",
+          "source_type": "original",
+          "title": "一直等到正整数",
+          "prompt": "逐行读取输入。不是整数或整数不大于 0 时继续读取，不打印任何内容；首次得到正整数时，只输出该整数并结束。测试输入一定最终包含正整数，输入时不要打印提示文字。",
+          "starter_code": "while True:\n    text = input()\n    # 处理异常并判断是否满足条件\n",
+          "hints": [
+            "使用 while True 反复读取，条件满足后 break。",
+            "int 转换失败时 except ValueError，然后 continue。",
+            "把 <= 0 的值也跳过，正整数才 print 并 break。"
+          ],
+          "solution": "while True:\n    try:\n        value = int(input())\n    except ValueError:\n        continue\n    if value <= 0:\n        continue\n    print(value)\n    break\n",
+          "wrong_solution": "while True:\n    try:\n        value = int(input())\n    except ValueError:\n        continue\n    if value < 0:\n        continue\n    print(value)\n    break\n",
+          "kind": "stdout",
+          "tests": [
+            {
+              "name": "第一次有效",
+              "stdin": "3\n",
+              "argv": [],
+              "expected": "3\n"
+            },
+            {
+              "name": "先有无效内容",
+              "stdin": "abc\n-2\n0\n5\n",
+              "argv": [],
+              "expected": "5\n"
+            },
+            {
+              "name": "小数不是整数",
+              "stdin": "2.5\n1\n",
+              "argv": [],
+              "expected": "1\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "week-4",
+      "points": [
+        {
+          "title": "模块是可以导入的工具",
+          "body": "import 让你使用模块提供的功能。statistics 计算统计量，json 在 JSON 文字和 Python 数据之间转换。标准库通常不需要额外安装。",
+          "example": "import statistics\nprint(statistics.mean([10, 20, 30]))"
+        },
+        {
+          "title": "命令行参数与输入不同",
+          "body": "input 在程序运行后等待一行输入。sys.argv 是启动程序时传入的参数列表，第 0 项是程序名，后面的项才是你提供的参数。",
+          "example": "import sys\nprint(sys.argv[1:])"
+        },
+        {
+          "title": "JSON 是数据交换格式",
+          "body": "JSON 对象读入后通常是字典，数组读入后是列表。json.loads 解析字符串，json.dumps 生成字符串；不要把 JSON 字符串当成已经解析的字典。"
+        },
+        {
+          "title": "网络请求会受到外部条件影响",
+          "body": "requests.get 向服务器发送 HTTP 请求；response.json() 把响应里的 JSON 转成 Python 数据。需要先安装 requests，设置 timeout，并处理失败。本周判题只用本地数据，网络示例供你理解调用过程。"
+        }
+      ],
+      "examples": [
+        {
+          "id": "week-4-example-1",
+          "title": "命令行传入学习分钟",
+          "code": "import sys\nimport statistics\n\nminutes = []\nfor text in sys.argv[1:]:\n    minutes.append(int(text))\nif minutes:\n    print(f\"平均 {statistics.mean(minutes):.1f} 分钟\")\nelse:\n    print(\"请在命令行参数区填写整数\")\n",
+          "argv": [
+            "10",
+            "20",
+            "30"
+          ]
+        },
+        {
+          "id": "week-4-example-2",
+          "title": "读取一段 JSON 配置",
+          "code": "import json\n\ntext = '{\"name\": \"小林\", \"lessons\": [\"变量\", \"循环\"]}'\nprofile = json.loads(text)\nprint(profile[\"name\"])\nprint(len(profile[\"lessons\"]))\n"
+        },
+        {
+          "id": "week-4-example-3",
+          "title": "理解 requests 的调用步骤",
+          "code": "# 安装 requests 后，再按需要取消注释运行网络请求。\n# 本示例默认只输出说明，避免把联网成功当成学习判题条件。\n# import requests\n# response = requests.get(\"https://cs50.harvard.edu/python/\", timeout=10)\n# response.raise_for_status()\n# print(response.status_code)\n# 接口返回 JSON 时可使用 response.json()。\nprint(\"HTTP 请求：设置地址和超时 → 检查状态 → 读取响应\")\n",
+          "optional_packages": [
+            "requests"
+          ],
+          "network_required": false
+        }
+      ],
+      "exercises": [
+        {
+          "id": "week-4-ex-1",
+          "unit_id": "week-4",
+          "source_type": "original",
+          "title": "统计参数总分钟",
+          "prompt": "读取所有命令行参数（不包括程序名），把它们转换为整数并相加，只输出总和与换行。参数都是合法整数；没有参数时输出 0。标准输入不参与计算。",
+          "starter_code": "import sys\n\ntotal = 0\n# 累计 sys.argv[1:] 中的整数\n",
+          "hints": [
+            "sys.argv[0] 是程序名，应从第 1 项开始。",
+            "遍历 sys.argv[1:]，每一项用 int 转换。",
+            "累计到 total，循环结束后只 print 一次。"
+          ],
+          "solution": "import sys\n\ntotal = 0\nfor text in sys.argv[1:]:\n    total += int(text)\nprint(total)\n",
+          "wrong_solution": "import sys\n\ntotal = 0\nfor text in sys.argv[2:]:\n    total += int(text)\nprint(total)\n",
+          "kind": "stdout",
+          "tests": [
+            {
+              "name": "三个参数",
+              "stdin": "",
+              "argv": [
+                "15",
+                "20",
+                "30"
+              ],
+              "expected": "65\n"
+            },
+            {
+              "name": "单个参数",
+              "stdin": "",
+              "argv": [
+                "7"
+              ],
+              "expected": "7\n"
+            },
+            {
+              "name": "没有参数",
+              "stdin": "",
+              "argv": [],
+              "expected": "0\n"
+            },
+            {
+              "name": "包括负数",
+              "stdin": "",
+              "argv": [
+                "3",
+                "-5"
+              ],
+              "expected": "-2\n"
+            }
+          ]
+        },
+        {
+          "id": "week-4-ex-2",
+          "unit_id": "week-4",
+          "source_type": "original",
+          "title": "计算平均学习时间",
+          "prompt": "实现 average_minutes(values)：用 statistics.mean 计算非空数字列表的平均数，再舍入到小数点后两位。空列表返回 0。",
+          "starter_code": "import statistics\n\ndef average_minutes(values):\n    pass\n",
+          "hints": [
+            "先处理空列表，避免 statistics.mean([]) 报错。",
+            "非空列表交给 statistics.mean。",
+            "返回 round(statistics.mean(values), 2)。"
+          ],
+          "solution": "import statistics\n\ndef average_minutes(values):\n    if not values:\n        return 0\n    return round(statistics.mean(values), 2)\n",
+          "wrong_solution": "import statistics\n\ndef average_minutes(values):\n    if not values:\n        return 0\n    return round(sum(values), 2)\n",
+          "kind": "function",
+          "function_name": "average_minutes",
+          "tests": [
+            {
+              "name": "三个时长",
+              "args": [
+                [
+                  10,
+                  20,
+                  30
+                ]
+              ],
+              "expected": 20,
+              "approx": 1E-06
+            },
+            {
+              "name": "需要舍入",
+              "args": [
+                [
+                  1,
+                  2,
+                  2
+                ]
+              ],
+              "expected": 1.67,
+              "approx": 1E-06
+            },
+            {
+              "name": "单个时长",
+              "args": [
+                [
+                  8
+                ]
+              ],
+              "expected": 8,
+              "approx": 1E-06
+            },
+            {
+              "name": "没有记录",
+              "args": [
+                []
+              ],
+              "expected": 0,
+              "approx": 1E-06
+            }
+          ]
+        },
+        {
+          "id": "week-4-ex-3",
+          "unit_id": "week-4",
+          "source_type": "original",
+          "title": "读取课程配置",
+          "prompt": "实现 lesson_count(json_text)：解析 JSON 字符串，返回对象中 lessons 数组的长度。输入始终是合法 JSON，且一定含 lessons 数组；其他键不影响结果。",
+          "starter_code": "import json\n\ndef lesson_count(json_text):\n    pass\n",
+          "hints": [
+            "使用 json.loads 把文字解析成字典。",
+            "取字典里的 lessons，不是统计整个字典的键数。",
+            "对 profile[\"lessons\"] 使用 len 并返回。"
+          ],
+          "solution": "import json\n\ndef lesson_count(json_text):\n    profile = json.loads(json_text)\n    return len(profile[\"lessons\"])\n",
+          "wrong_solution": "import json\n\ndef lesson_count(json_text):\n    return len(json.loads(json_text))\n",
+          "kind": "function",
+          "function_name": "lesson_count",
+          "tests": [
+            {
+              "name": "三个课程",
+              "args": [
+                "{\"name\":\"小林\",\"lessons\":[\"变量\",\"函数\",\"循环\"]}"
+              ],
+              "expected": 3
+            },
+            {
+              "name": "空课程",
+              "args": [
+                "{\"lessons\":[]}"
+              ],
+              "expected": 0
+            },
+            {
+              "name": "额外字段",
+              "args": [
+                "{\"lessons\":[\"A\"],\"level\":1,\"active\":true}"
+              ],
+              "expected": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "week-5",
+      "points": [
+        {
+          "title": "测试把约定写成可以运行的检查",
+          "body": "一个测试先准备输入，调用函数，再用 assert 比较实际结果与期望结果。发现失败时，判断是程序错了、测试错了，还是原来的约定不够明确。",
+          "example": "assert shipping_fee(100) == 0"
+        },
+        {
+          "title": "pytest 的文件与函数命名",
+          "body": "通常使用 test_ 开头的文件和函数。这里编写测试题时，编辑器里的代码作为 tests.py 保存，运行时明确交给 pytest，不要求你另建文件。"
+        },
+        {
+          "title": "正常案例和边界案例都需要",
+          "body": "不仅测试普通输入，还要测试刚好达到门槛、空字符串和空列表。测试应能发现有代表性的错误实现，同时让正确实现通过。"
+        },
+        {
+          "title": "浮点数比较需要容差",
+          "body": "浮点表示可能产生很小的误差。abs(a - b) 得到差值大小；把它和允许误差比较，比直接判断 a == b 更适合某些计算结果。"
+        }
+      ],
+      "examples": [
+        {
+          "id": "week-5-example-1",
+          "title": "一次可以通过的断言",
+          "code": "def square(number):\n    return number * number\n\nassert square(0) == 0\nassert square(-3) == 9\nprint(\"两个断言都通过了\")\n"
+        },
+        {
+          "id": "week-5-example-2",
+          "title": "多文件 pytest 示例",
+          "code": "from prices import discounted\n\n\ndef test_discounted():\n    assert discounted(10) == 8\n    assert discounted(0) == 0\n",
+          "required_packages": [
+            "pytest"
+          ],
+          "files": {
+            "prices.py": "def discounted(price):\n    return price * 0.8\n"
+          },
+          "entrypoint": "test_prices.py",
+          "pytest_mode": true
+        }
+      ],
+      "exercises": [
+        {
+          "id": "week-5-ex-1",
+          "unit_id": "week-5",
+          "source_type": "original",
+          "title": "为及格判断写测试",
+          "prompt": "编辑器内容会作为 tests.py 运行。已提供 study.py 中的 is_passing(score)：0–100 的整数，60 及以上应返回 True，低于 60 返回 False。编写 pytest 测试：正确实现必须通过，同时应发现“不包含60”“全部通过”“全部失败”三个错误版本。只能导入并调用函数测试公开行为，不读取实现源码。",
+          "starter_code": "from study import is_passing\n\n\ndef test_is_passing():\n    # 增加普通情况和边界断言\n    pass\n",
+          "hints": [
+            "先用 assert 检查一个明显及格和一个明显不及格的分数。",
+            "要发现 > 写成 >= 的区别，应检查 60。",
+            "检查 59、60 和 61，并包括 0 与 100，能覆盖这几个已知错误版本。"
+          ],
+          "solution": "from study import is_passing\n\n\ndef test_is_passing():\n    assert is_passing(0) is False\n    assert is_passing(59) is False\n    assert is_passing(60) is True\n    assert is_passing(61) is True\n    assert is_passing(100) is True\n",
+          "wrong_solution": "from study import is_passing\n\n\ndef test_is_passing():\n    assert is_passing(80) is True\n",
+          "kind": "pytest",
+          "student_file": "tests.py",
+          "tests": [],
+          "files": {
+            "study.py": "def is_passing(score):\n    return score >= 60\n"
+          },
+          "variants": [
+            {
+              "name": "正确实现",
+              "files": {
+                "study.py": "def is_passing(score):\n    return score >= 60\n"
+              },
+              "should_pass": true
+            },
+            {
+              "name": "错误：不包含60",
+              "files": {
+                "study.py": "def is_passing(score):\n    return score > 60\n"
+              },
+              "should_pass": false
+            },
+            {
+              "name": "错误：全部通过",
+              "files": {
+                "study.py": "def is_passing(score):\n    return True\n"
+              },
+              "should_pass": false
+            },
+            {
+              "name": "错误：全部失败",
+              "files": {
+                "study.py": "def is_passing(score):\n    return False\n"
+              },
+              "should_pass": false
+            }
+          ]
+        },
+        {
+          "id": "week-5-ex-2",
+          "unit_id": "week-5",
+          "source_type": "original",
+          "title": "为标签清理写测试",
+          "prompt": "编辑器内容会作为 tests.py 运行。已提供 labels.py 中的 clean_label(text)：去掉两端空白后转小写；空白文字得到空字符串。编写 pytest 测试，使正确实现通过，并发现“没去空白”“没转小写”“空输入变成untitled”三个错误版本。只能通过导入函数检查公开行为。",
+          "starter_code": "from labels import clean_label\n\n\ndef test_clean_label():\n    pass\n",
+          "hints": [
+            "先写含大写和边缘空白的输入。",
+            "空字符串和只有空白的字符串也应被测试。",
+            "用“  MIX  ”预期“mix”，再检查空白输入预期“”，可识别这三个错误版本。"
+          ],
+          "solution": "from labels import clean_label\n\n\ndef test_clean_label():\n    assert clean_label(\"  MIX  \") == \"mix\"\n    assert clean_label(\"Learn Python\") == \"learn python\"\n    assert clean_label(\" \t \") == \"\"\n    assert clean_label(\"\") == \"\"\n",
+          "wrong_solution": "from labels import clean_label\n\n\ndef test_clean_label():\n    assert clean_label(\"python\") == \"python\"\n",
+          "kind": "pytest",
+          "student_file": "tests.py",
+          "tests": [],
+          "files": {
+            "labels.py": "def clean_label(text):\n    return text.strip().lower()\n"
+          },
+          "variants": [
+            {
+              "name": "正确实现",
+              "files": {
+                "labels.py": "def clean_label(text):\n    return text.strip().lower()\n"
+              },
+              "should_pass": true
+            },
+            {
+              "name": "错误：没有去空白",
+              "files": {
+                "labels.py": "def clean_label(text):\n    return text.lower()\n"
+              },
+              "should_pass": false
+            },
+            {
+              "name": "错误：没有转小写",
+              "files": {
+                "labels.py": "def clean_label(text):\n    return text.strip()\n"
+              },
+              "should_pass": false
+            },
+            {
+              "name": "错误：为空时返回默认标签",
+              "files": {
+                "labels.py": "def clean_label(text):\n    return text.strip().lower() or 'untitled'\n"
+              },
+              "should_pass": false
+            }
+          ]
+        },
+        {
+          "id": "week-5-ex-3",
+          "unit_id": "week-5",
+          "source_type": "original",
+          "title": "写一个数值比较助手",
+          "prompt": "实现 close_enough(actual, expected, tolerance)：差值的绝对值不大于 tolerance 时返回 True，否则 False。tolerance 不小于 0；这里的容差是绝对差，不是百分比。",
+          "starter_code": "def close_enough(actual, expected, tolerance):\n    pass\n",
+          "hints": [
+            "abs 得到绝对值，差值无论正负都应以同一方式判断。",
+            "容差本身也算允许范围。",
+            "返回 abs(actual - expected) <= tolerance。"
+          ],
+          "solution": "def close_enough(actual, expected, tolerance):\n    return abs(actual - expected) <= tolerance\n",
+          "wrong_solution": "def close_enough(actual, expected, tolerance):\n    return actual == expected\n",
+          "kind": "function",
+          "function_name": "close_enough",
+          "tests": [
+            {
+              "name": "小误差允许",
+              "args": [
+                0.30000000000000004,
+                0.3,
+                1E-06
+              ],
+              "expected": true
+            },
+            {
+              "name": "正好容差",
+              "args": [
+                4,
+                5,
+                1
+              ],
+              "expected": true
+            },
+            {
+              "name": "超过容差",
+              "args": [
+                4,
+                5,
+                0.5
+              ],
+              "expected": false
+            },
+            {
+              "name": "零容差",
+              "args": [
+                3,
+                3,
+                0
+              ],
+              "expected": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "week-6",
+      "points": [
+        {
+          "title": "文件让结果在程序退出后保留下来",
+          "body": "open 指明路径和模式：r 读取，w 覆盖写入，a 追加。中文文本显式指定 encoding=\"utf-8\"。with 会在代码块结束后关闭文件。",
+          "example": "with open(\"note.txt\", \"a\", encoding=\"utf-8\") as file:\n    file.write(\"今天学了文件读写\\n\")"
+        },
+        {
+          "title": "路径相对于工作目录解释",
+          "body": "练习提供的 files 会放在本次独立运行目录。按题目文件名读取即可。每次判题重新准备资料，不会修改你的个人笔记或上次运行的文件。"
+        },
+        {
+          "title": "CSV 用专门的解析工具",
+          "body": "csv.DictReader 将表头作为键，每一行变成字典。带引号的逗号也是有效单元格内容，手动按逗号拆分会容易出错。数值列通常先是字符串。"
+        },
+        {
+          "title": "图片也是文件",
+          "body": "Pillow 的导入名称是 PIL。Image.new 可创建图片，save 保存。图片示例会写入运行目录中的文件，需要项目环境里有 Pillow。"
+        }
+      ],
+      "examples": [
+        {
+          "id": "week-6-example-1",
+          "title": "写入并读取中文笔记",
+          "code": "with open(\"note.txt\", \"w\", encoding=\"utf-8\") as file:\n    file.write(\"今天学习文件读写\\n\")\nwith open(\"note.txt\", encoding=\"utf-8\") as file:\n    print(file.read(), end=\"\")\n"
+        },
+        {
+          "id": "week-6-example-2",
+          "title": "读取 CSV 表格",
+          "code": "import csv\n\nwith open(\"study.csv\", newline=\"\", encoding=\"utf-8\") as file:\n    for row in csv.DictReader(file):\n        print(f'{row[\"day\"]}：{row[\"minutes\"]} 分钟')\n",
+          "files": {
+            "study.csv": "day,minutes\n周一,15\n周二,30\n"
+          }
+        },
+        {
+          "id": "week-6-example-3",
+          "title": "创建一张学习卡片图片",
+          "code": "from PIL import Image\n\nimage = Image.new(\"RGB\", (320, 180), \"#1e6f62\")\nimage.save(\"study-card.png\")\nprint(f\"已生成 study-card.png，尺寸 {image.width}×{image.height}\")\n",
+          "required_packages": [
+            "Pillow"
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "week-6-ex-1",
+          "unit_id": "week-6",
+          "source_type": "original",
+          "title": "读取有效笔记行",
+          "prompt": "实现 read_notes(filename)：以 UTF-8 读取文本文件，去掉每行两端空白，忽略空白行，按原顺序返回非空字符串列表。文件一定存在。",
+          "starter_code": "def read_notes(filename):\n    pass\n",
+          "hints": [
+            "打开文件后可以直接逐行遍历。",
+            "strip 也会去掉换行符，再判断是否还有文字。",
+            "只把非空 text 添加到列表，最后返回列表。"
+          ],
+          "solution": "def read_notes(filename):\n    notes = []\n    with open(filename, encoding=\"utf-8\") as file:\n        for line in file:\n            text = line.strip()\n            if text:\n                notes.append(text)\n    return notes\n",
+          "wrong_solution": "def read_notes(filename):\n    notes = []\n    with open(filename, encoding=\"utf-8\") as file:\n        for line in file:\n            notes.append(line.strip())\n    return notes\n",
+          "kind": "function",
+          "function_name": "read_notes",
+          "tests": [
+            {
+              "name": "混合笔记",
+              "args": [
+                "notes.txt"
+              ],
+              "expected": [
+                "函数参数",
+                "循环"
+              ]
+            },
+            {
+              "name": "空白文件",
+              "args": [
+                "blank.txt"
+              ],
+              "expected": []
+            },
+            {
+              "name": "没有结尾换行",
+              "args": [
+                "single.txt"
+              ],
+              "expected": [
+                "只有一行"
+              ]
+            }
+          ],
+          "files": {
+            "notes.txt": "  函数参数  \n\n循环\n \t \n",
+            "blank.txt": "\n  \n\t\n",
+            "single.txt": "只有一行"
+          }
+        },
+        {
+          "id": "week-6-ex-2",
+          "unit_id": "week-6",
+          "source_type": "original",
+          "title": "累计 CSV 库存",
+          "prompt": "实现 total_quantity(filename)：使用 csv.DictReader 读取 UTF-8 CSV 文件，把 quantity 列的非负整数相加并返回。文件有 item,quantity 表头；数据行可为零行；商品名称可能含引号包围的逗号。",
+          "starter_code": "import csv\n\ndef total_quantity(filename):\n    pass\n",
+          "hints": [
+            "让 csv.DictReader 处理表头和带引号的逗号。",
+            "row[\"quantity\"] 是字符串，先用 int 转换。",
+            "对数量求和，而不是统计行数。"
+          ],
+          "solution": "import csv\n\ndef total_quantity(filename):\n    total = 0\n    with open(filename, newline=\"\", encoding=\"utf-8\") as file:\n        for row in csv.DictReader(file):\n            total += int(row[\"quantity\"])\n    return total\n",
+          "wrong_solution": "import csv\n\ndef total_quantity(filename):\n    total = 0\n    with open(filename, newline=\"\", encoding=\"utf-8\") as file:\n        for row in csv.DictReader(file):\n            total += 1\n    return total\n",
+          "kind": "function",
+          "function_name": "total_quantity",
+          "tests": [
+            {
+              "name": "普通库存",
+              "args": [
+                "inventory.csv"
+              ],
+              "expected": 5
+            },
+            {
+              "name": "只有表头",
+              "args": [
+                "empty.csv"
+              ],
+              "expected": 0
+            },
+            {
+              "name": "名称含逗号",
+              "args": [
+                "quoted.csv"
+              ],
+              "expected": 7
+            }
+          ],
+          "files": {
+            "inventory.csv": "item,quantity\n笔,3\n书,2\n便签,0\n",
+            "empty.csv": "item,quantity\n",
+            "quoted.csv": "item,quantity\n\"笔,蓝色\",7\n"
+          }
+        },
+        {
+          "id": "week-6-ex-3",
+          "unit_id": "week-6",
+          "source_type": "original",
+          "title": "追加学习日志",
+          "prompt": "已有 UTF-8 journal.txt，内容为“第一条”加换行。读取一行输入，去掉两端空白，将该文字和换行追加到文件；随后完整输出文件内容，不额外添加换行。空输入也要追加一个空行。不要覆盖原来的第一条。",
+          "starter_code": "entry = input().strip()\n# 追加日志，再读取输出\n",
+          "hints": [
+            "使用追加模式 a，读取模式保持默认 r。",
+            "写入 entry + \"\\n\"，包含这条日志的换行。",
+            "再次读取文件，用 print(..., end=\"\") 避免额外换行。"
+          ],
+          "solution": "entry = input().strip()\nwith open(\"journal.txt\", \"a\", encoding=\"utf-8\") as file:\n    file.write(entry + \"\\n\")\nwith open(\"journal.txt\", encoding=\"utf-8\") as file:\n    print(file.read(), end=\"\")\n",
+          "wrong_solution": "entry = input().strip()\nwith open(\"journal.txt\", \"w\", encoding=\"utf-8\") as file:\n    file.write(entry + \"\\n\")\nwith open(\"journal.txt\", encoding=\"utf-8\") as file:\n    print(file.read(), end=\"\")\n",
+          "kind": "stdout",
+          "tests": [
+            {
+              "name": "追加正常文字",
+              "stdin": "第二条\n",
+              "argv": [],
+              "expected": "第一条\n第二条\n"
+            },
+            {
+              "name": "整理输入空白",
+              "stdin": "  新内容  \n",
+              "argv": [],
+              "expected": "第一条\n新内容\n"
+            },
+            {
+              "name": "追加空行",
+              "stdin": "\n",
+              "argv": [],
+              "expected": "第一条\n\n"
+            }
+          ],
+          "files": {
+            "journal.txt": "第一条\n"
+          }
+        }
+      ]
+    },
+    {
+      "unit_id": "week-7",
+      "points": [
+        {
+          "title": "正则表达式描述文字的模式",
+          "body": "re.fullmatch 要求整段文字匹配；re.search 只需要找到其中一段。校验完整标签时使用 fullmatch，查找段落中的编号时可以用 findall。"
+        },
+        {
+          "title": "字符范围和重复次数",
+          "body": "[A-Za-z] 表示英文字母；[0-9] 表示数字；{3} 要求重复三次；{2,9} 表示至少两次、最多九次。r 前缀使反斜杠在模式中更容易书写。",
+          "example": "pattern = r\"[A-Za-z][A-Za-z0-9_]{2,9}\""
+        },
+        {
+          "title": "捕获组可以只取需要的一部分",
+          "body": "括号形成捕获组。findall 在模式有一个捕获组时返回该组匹配的文字列表。\\b 表示单词边界，能避免把更长单词里的片段当成完整编号。",
+          "example": "re.findall(r\"\\bORD-(\\d{3})\\b\", text)"
+        },
+        {
+          "title": "替换可以清理输入",
+          "body": "\\s 匹配空白字符，包括空格、换行和制表符。re.sub 用新文字替换匹配内容；末尾再 strip 可以去掉整理后两端的空白。"
+        }
+      ],
+      "examples": [
+        {
+          "id": "week-7-example-1",
+          "title": "判断短标签格式",
+          "code": "import re\n\nfor label in [\"py_101\", \"12start\", \"hello!\"]:\n    valid = re.fullmatch(r\"[A-Za-z][A-Za-z0-9_]{2,9}\", label) is not None\n    print(label, valid)\n"
+        },
+        {
+          "id": "week-7-example-2",
+          "title": "从文字中提取编号",
+          "code": "import re\n\ntext = \"今天处理 ORD-001 和 ORD-205。\"\nprint(re.findall(r\"\\bORD-(\\d{3})\\b\", text))\n"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "week-7-ex-1",
+          "unit_id": "week-7",
+          "source_type": "original",
+          "title": "校验学习标签",
+          "prompt": "实现 valid_tag(text)：标签总长度为 3–10；第一个字符必须是英文字母，剩下只能是英文字母、数字或下划线。要求整段文字匹配，返回 True/False；不自动去掉空白。",
+          "starter_code": "import re\n\ndef valid_tag(text):\n    pass\n",
+          "hints": [
+            "长度包括首字符；剩余部分应为 2–9 个字符。",
+            "开头使用 [A-Za-z]，其余使用 [A-Za-z0-9_]。",
+            "用 re.fullmatch，并把结果与 None 比较。"
+          ],
+          "solution": "import re\n\ndef valid_tag(text):\n    return re.fullmatch(r\"[A-Za-z][A-Za-z0-9_]{2,9}\", text) is not None\n",
+          "wrong_solution": "import re\n\ndef valid_tag(text):\n    return re.search(r\"[A-Za-z][A-Za-z0-9_]{2,9}\", text) is not None\n",
+          "kind": "function",
+          "function_name": "valid_tag",
+          "tests": [
+            {
+              "name": "最短长度",
+              "args": [
+                "a_1"
+              ],
+              "expected": true
+            },
+            {
+              "name": "最长长度",
+              "args": [
+                "Abc123_789"
+              ],
+              "expected": true
+            },
+            {
+              "name": "太短",
+              "args": [
+                "ab"
+              ],
+              "expected": false
+            },
+            {
+              "name": "太长",
+              "args": [
+                "Abc123_7890"
+              ],
+              "expected": false
+            },
+            {
+              "name": "数字开头",
+              "args": [
+                "1python"
+              ],
+              "expected": false
+            },
+            {
+              "name": "禁止标点",
+              "args": [
+                "!python!"
+              ],
+              "expected": false
+            },
+            {
+              "name": "前后空白",
+              "args": [
+                " py_1 "
+              ],
+              "expected": false
+            },
+            {
+              "name": "中文",
+              "args": [
+                "学习标签"
+              ],
+              "expected": false
+            }
+          ]
+        },
+        {
+          "id": "week-7-ex-2",
+          "unit_id": "week-7",
+          "source_type": "original",
+          "title": "提取三位订单号",
+          "prompt": "实现 order_ids(text)：找到符合 \\bORD-(\\d{3})\\b 的编号，按出现顺序返回三位数字字符串列表（保留前导零）。仅匹配大写 ORD；不匹配四位编号、XORD 开头的片段或没有编号的文字。",
+          "starter_code": "import re\n\ndef order_ids(text):\n    pass\n",
+          "hints": [
+            "findall 一次找出所有匹配。",
+            "数字放在捕获组里，规定刚好三位。",
+            "使用 r\"\\bORD-(\\d{3})\\b\"，结果保持字符串即可保留 001。"
+          ],
+          "solution": "import re\n\ndef order_ids(text):\n    return re.findall(r\"\\bORD-(\\d{3})\\b\", text)\n",
+          "wrong_solution": "import re\n\ndef order_ids(text):\n    return re.findall(r\"ORD-(\\d+)\", text)\n",
+          "kind": "function",
+          "function_name": "order_ids",
+          "tests": [
+            {
+              "name": "多个编号",
+              "args": [
+                "处理 ORD-001 和 ORD-205。"
+              ],
+              "expected": [
+                "001",
+                "205"
+              ]
+            },
+            {
+              "name": "排除伪编号",
+              "args": [
+                "ORD-1234 XORD-222 ord-333 ORD-999"
+              ],
+              "expected": [
+                "999"
+              ]
+            },
+            {
+              "name": "没有匹配",
+              "args": [
+                "今天没有订单"
+              ],
+              "expected": []
+            },
+            {
+              "name": "重复编号",
+              "args": [
+                "ORD-010,ORD-010"
+              ],
+              "expected": [
+                "010",
+                "010"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "week-7-ex-3",
+          "unit_id": "week-7",
+          "source_type": "original",
+          "title": "把各种空白统一",
+          "prompt": "实现 normalize_spaces(text)：连续的空白字符（空格、制表符、换行等）替换为一个普通空格，然后去掉两端空白。返回处理后的字符串；全为空白时返回空字符串。",
+          "starter_code": "import re\n\ndef normalize_spaces(text):\n    pass\n",
+          "hints": [
+            "\\s 匹配不同的空白字符，+ 表示一个或多个。",
+            "用 re.sub 把每组空白换成一个普通空格。",
+            "替换完成后再 strip，清理两端。"
+          ],
+          "solution": "import re\n\ndef normalize_spaces(text):\n    return re.sub(r\"\\s+\", \" \", text).strip()\n",
+          "wrong_solution": "def normalize_spaces(text):\n    return text.replace(\"  \", \" \").strip()\n",
+          "kind": "function",
+          "function_name": "normalize_spaces",
+          "tests": [
+            {
+              "name": "不同空白",
+              "args": [
+                " \t学  Python\n每天\t一点 "
+              ],
+              "expected": "学 Python 每天 一点"
+            },
+            {
+              "name": "全为空白",
+              "args": [
+                "\n\t   "
+              ],
+              "expected": ""
+            },
+            {
+              "name": "无多余空白",
+              "args": [
+                "A B"
+              ],
+              "expected": "A B"
+            },
+            {
+              "name": "空字符串",
+              "args": [
+                ""
+              ],
+              "expected": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unit_id": "week-8",
+      "points": [
+        {
+          "title": "对象把数据和操作放在一起",
+          "body": "class 定义一种对象，__init__ 初始化每个实例的数据。方法的 self 指向当前对象；给不同实例保存各自的状态。",
+          "example": "class Counter:\n    def __init__(self):\n        self.value = 0\n\n    def add(self):\n        self.value += 1"
+        },
+        {
+          "title": "特殊方法与属性",
+          "body": "__str__ 决定 str(object) 如何显示；@property 可以把一个计算结果暴露为属性。先明确对象应保持的规则，再设计哪些方法可以修改它。"
+        },
+        {
+          "title": "继承复用已有行为",
+          "body": "子类可以继承父类，再覆盖某个方法。super() 调用父类逻辑。继承应表达确实存在的关系；简单计算也可以只用函数。"
+        },
+        {
+          "title": "本周用包装函数方便判题",
+          "body": "练习要求先写类，再提供题目指定的包装函数。包装函数创建对象、调用方法并返回可比较的字符串、数字或字典。本地功能判题检查返回结果；类的设计可继续在代码中观察和改进。"
+        }
+      ],
+      "examples": [
+        {
+          "id": "week-8-example-1",
+          "title": "每个计数器有自己的状态",
+          "code": "class Counter:\n    def __init__(self):\n        self.value = 0\n\n    def add(self):\n        self.value += 1\n\n    def __str__(self):\n        return f\"次数：{self.value}\"\n\nfirst = Counter()\nsecond = Counter()\nfirst.add()\nprint(first)\nprint(second)\n"
+        },
+        {
+          "id": "week-8-example-2",
+          "title": "属性与继承",
+          "code": "class Ticket:\n    def __init__(self, price):\n        self.price = price\n\n    @property\n    def payable(self):\n        return self.price\n\nclass StudentTicket(Ticket):\n    @property\n    def payable(self):\n        return self.price * 0.8\n\nprint(Ticket(50).payable)\nprint(StudentTicket(50).payable)\n"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "week-8-ex-1",
+          "unit_id": "week-8",
+          "source_type": "original",
+          "title": "有状态的学习计分板",
+          "prompt": "定义 ScoreBoard：__init__(start) 保存初始整数得分，add(points) 累加整数（可以为负），__str__ 返回“得分：N”。实现 score_report(start, additions)：创建对象，依次 add 列表中的分数，返回 str(对象)。空 additions 时返回初始得分的文字。",
+          "starter_code": "class ScoreBoard:\n    def __init__(self, start):\n        pass\n\n    def add(self, points):\n        pass\n\n    def __str__(self):\n        pass\n\n\ndef score_report(start, additions):\n    pass\n",
+          "hints": [
+            "在 self.score 中保存当前状态。",
+            "add 每次累加，不应覆盖已有得分。",
+            "包装函数循环调用 add，最后返回 str(board)。"
+          ],
+          "solution": "class ScoreBoard:\n    def __init__(self, start):\n        self.score = start\n\n    def add(self, points):\n        self.score += points\n\n    def __str__(self):\n        return f\"得分：{self.score}\"\n\n\ndef score_report(start, additions):\n    board = ScoreBoard(start)\n    for points in additions:\n        board.add(points)\n    return str(board)\n",
+          "wrong_solution": "class ScoreBoard:\n    def __init__(self, start):\n        self.score = start\n\n    def add(self, points):\n        self.score = points\n\n    def __str__(self):\n        return f\"得分：{self.score}\"\n\n\ndef score_report(start, additions):\n    board = ScoreBoard(start)\n    for points in additions:\n        board.add(points)\n    return str(board)\n",
+          "kind": "function",
+          "function_name": "score_report",
+          "tests": [
+            {
+              "name": "连续累加",
+              "args": [
+                10,
+                [
+                  2,
+                  3
+                ]
+              ],
+              "expected": "得分：15"
+            },
+            {
+              "name": "允许负积分",
+              "args": [
+                3,
+                [
+                  -5
+                ]
+              ],
+              "expected": "得分：-2"
+            },
+            {
+              "name": "没有新增积分",
+              "args": [
+                7,
+                []
+              ],
+              "expected": "得分：7"
+            },
+            {
+              "name": "重复运行不共享状态",
+              "args": [
+                0,
+                [
+                  1,
+                  1
+                ]
+              ],
+              "expected": "得分：2"
+            }
+          ],
+          "required_structure": {
+            "class": "ScoreBoard",
+            "methods": [
+              "__init__",
+              "add",
+              "__str__"
+            ]
+          },
+          "structure_message": "请按题面定义 ScoreBoard 类及 __init__、add、__str__ 方法。"
+        },
+        {
+          "id": "week-8-ex-2",
+          "unit_id": "week-8",
+          "source_type": "original",
+          "title": "通过属性换算温度",
+          "prompt": "定义 Temperature：__init__(celsius) 保存摄氏温度，@property fahrenheit 返回 celsius * 9 / 5 + 32。实现 to_fahrenheit(celsius)：创建对象并返回其 fahrenheit 属性。不需要舍入，允许负温度。",
+          "starter_code": "class Temperature:\n    def __init__(self, celsius):\n        pass\n\n    @property\n    def fahrenheit(self):\n        pass\n\n\ndef to_fahrenheit(celsius):\n    pass\n",
+          "hints": [
+            "构造方法保存 self.celsius。",
+            "property 方法里计算比例和偏移值。",
+            "访问 .fahrenheit 时不加调用括号，包装函数返回该属性。"
+          ],
+          "solution": "class Temperature:\n    def __init__(self, celsius):\n        self.celsius = celsius\n\n    @property\n    def fahrenheit(self):\n        return self.celsius * 9 / 5 + 32\n\n\ndef to_fahrenheit(celsius):\n    return Temperature(celsius).fahrenheit\n",
+          "wrong_solution": "class Temperature:\n    def __init__(self, celsius):\n        self.celsius = celsius\n\n    @property\n    def fahrenheit(self):\n        return self.celsius * 9 / 5\n\n\ndef to_fahrenheit(celsius):\n    return Temperature(celsius).fahrenheit\n",
+          "kind": "function",
+          "function_name": "to_fahrenheit",
+          "tests": [
+            {
+              "name": "冰点",
+              "args": [
+                0
+              ],
+              "expected": 32,
+              "approx": 1E-06
+            },
+            {
+              "name": "沸点",
+              "args": [
+                100
+              ],
+              "expected": 212,
+              "approx": 1E-06
+            },
+            {
+              "name": "负温度",
+              "args": [
+                -40
+              ],
+              "expected": -40,
+              "approx": 1E-06
+            },
+            {
+              "name": "带小数",
+              "args": [
+                12.5
+              ],
+              "expected": 54.5,
+              "approx": 1E-06
+            }
+          ],
+          "required_structure": {
+            "methods": [
+              "__init__",
+              "fahrenheit"
+            ],
+            "class": "Temperature",
+            "property": "fahrenheit"
+          },
+          "structure_message": "请定义 Temperature 类，并用 @property 定义 fahrenheit 属性。"
+        },
+        {
+          "id": "week-8-ex-3",
+          "unit_id": "week-8",
+          "source_type": "original",
+          "title": "预算对象拒绝超支",
+          "prompt": "定义 Budget：__init__(amount) 保存余额；spend(cost) 在 cost <= 余额时扣款并返回 True，否则余额不变并返回 False。所有金额为不小于 0 的整数。实现 budget_report(initial, costs)：依次尝试扣款，返回字典 {\"balance\":最后余额,\"accepted\":每次的布尔结果列表}。",
+          "starter_code": "class Budget:\n    def __init__(self, amount):\n        pass\n\n    def spend(self, cost):\n        pass\n\n\ndef budget_report(initial, costs):\n    pass\n",
+          "hints": [
+            "对象保存余额，每次调用方法可能修改余额。",
+            "钱刚好够时也应成功，因此条件是 <=。",
+            "被拒绝时不要扣款；包装函数收集每次返回值。"
+          ],
+          "solution": "class Budget:\n    def __init__(self, amount):\n        self.balance = amount\n\n    def spend(self, cost):\n        if cost <= self.balance:\n            self.balance -= cost\n            return True\n        return False\n\n\ndef budget_report(initial, costs):\n    budget = Budget(initial)\n    accepted = []\n    for cost in costs:\n        accepted.append(budget.spend(cost))\n    return {\"balance\": budget.balance, \"accepted\": accepted}\n",
+          "wrong_solution": "class Budget:\n    def __init__(self, amount):\n        self.balance = amount\n\n    def spend(self, cost):\n        if cost < self.balance:\n            self.balance -= cost\n            return True\n        return False\n\n\ndef budget_report(initial, costs):\n    budget = Budget(initial)\n    accepted = []\n    for cost in costs:\n        accepted.append(budget.spend(cost))\n    return {\"balance\": budget.balance, \"accepted\": accepted}\n",
+          "kind": "function",
+          "function_name": "budget_report",
+          "tests": [
+            {
+              "name": "用完预算",
+              "args": [
+                10,
+                [
+                  3,
+                  7
+                ]
+              ],
+              "expected": {
+                "balance": 0,
+                "accepted": [
+                  true,
+                  true
+                ]
+              }
+            },
+            {
+              "name": "拒绝后继续使用",
+              "args": [
+                10,
+                [
+                  11,
+                  2
+                ]
+              ],
+              "expected": {
+                "balance": 8,
+                "accepted": [
+                  false,
+                  true
+                ]
+              }
+            },
+            {
+              "name": "零预算与零费用",
+              "args": [
+                0,
+                [
+                  0,
+                  1
+                ]
+              ],
+              "expected": {
+                "balance": 0,
+                "accepted": [
+                  true,
+                  false
+                ]
+              }
+            },
+            {
+              "name": "没有消费",
+              "args": [
+                5,
+                []
+              ],
+              "expected": {
+                "balance": 5,
+                "accepted": []
+              }
+            }
+          ],
+          "required_structure": {
+            "class": "Budget",
+            "methods": [
+              "__init__",
+              "spend"
+            ]
+          },
+          "structure_message": "请定义 Budget 类，并实现 __init__ 和 spend 方法。"
+        }
+      ]
+    },
+    {
+      "unit_id": "week-9",
+      "points": [
+        {
+          "title": "推导式简洁地表达筛选和变换",
+          "body": "列表推导式把 for 和可选的 if 放在方括号内。先用普通循环想清楚每个值如何处理，再改写；可读性比压缩成一行更重要。",
+          "example": "squares = [value * value for value in values if value > 0]"
+        },
+        {
+          "title": "生成器按需要产生数据",
+          "body": "含 yield 的函数调用后得到生成器。循环每次向它请求下一个值，不需要先把所有结果放进列表。list(generator) 可以收集结果，便于观察。"
+        },
+        {
+          "title": "argparse 解释有名字的命令行选项",
+          "body": "ArgumentParser 定义允许的参数，add_argument 可以给默认值或类型，parse_args 负责读取。相比自己找 sys.argv 的位置，命名参数更容易说明用途。"
+        },
+        {
+          "title": "文档与类型提示帮助后来者理解代码",
+          "body": "文档字符串写明函数用途、输入和返回值。类型提示帮助阅读与工具检查，Python 通常不会仅凭类型提示自动阻止错误类型的值。"
+        }
+      ],
+      "examples": [
+        {
+          "id": "week-9-example-1",
+          "title": "用推导式筛选正数",
+          "code": "values = [-2, 0, 1, 3]\nsquares = [value * value for value in values if value > 0]\nprint(squares)\n"
+        },
+        {
+          "id": "week-9-example-2",
+          "title": "生成器按需提供数字",
+          "code": "def odd_numbers(stop):\n    for number in range(stop):\n        if number % 2 == 1:\n            yield number\n\nfor number in odd_numbers(8):\n    print(number)\n"
+        },
+        {
+          "id": "week-9-example-3",
+          "title": "命名命令行参数",
+          "code": "import argparse\n\nparser = argparse.ArgumentParser(description=\"学习提醒\")\nparser.add_argument(\"--name\", default=\"同学\")\nparser.add_argument(\"--minutes\", type=int, default=30)\nargs = parser.parse_args()\nprint(f\"{args.name}，今天计划学习 {args.minutes} 分钟。\")\n",
+          "argv": [
+            "--name",
+            "小林",
+            "--minutes",
+            "20"
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "week-9-ex-1",
+          "unit_id": "week-9",
+          "source_type": "original",
+          "title": "用推导式生成正数平方",
+          "prompt": "实现 positive_squares(values)：使用列表推导式，按原顺序返回整数列表中所有正数的平方；0 和负数丢弃，重复值保留，空列表返回空列表。",
+          "starter_code": "def positive_squares(values):\n    pass\n",
+          "hints": [
+            "先确定筛选条件：值必须大于 0。",
+            "推导式的输出表达式是 value * value。",
+            "组合成 [value * value for value in values if value > 0]。"
+          ],
+          "solution": "def positive_squares(values):\n    return [value * value for value in values if value > 0]\n",
+          "wrong_solution": "def positive_squares(values):\n    return [value * value for value in values if value >= 0]\n",
+          "kind": "function",
+          "function_name": "positive_squares",
+          "tests": [
+            {
+              "name": "混合整数",
+              "args": [
+                [
+                  -2,
+                  0,
+                  1,
+                  3
+                ]
+              ],
+              "expected": [
+                1,
+                9
+              ]
+            },
+            {
+              "name": "重复正数",
+              "args": [
+                [
+                  2,
+                  2
+                ]
+              ],
+              "expected": [
+                4,
+                4
+              ]
+            },
+            {
+              "name": "没有正数",
+              "args": [
+                [
+                  0,
+                  -1
+                ]
+              ],
+              "expected": []
+            },
+            {
+              "name": "空列表",
+              "args": [
+                []
+              ],
+              "expected": []
+            }
+          ],
+          "required_structure": {
+            "function": "positive_squares",
+            "node": "ListComp"
+          },
+          "structure_message": "这道题要练习列表推导式，请在 positive_squares 中使用它。"
+        },
+        {
+          "id": "week-9-ex-2",
+          "unit_id": "week-9",
+          "source_type": "original",
+          "title": "生成小于终点的奇数",
+          "prompt": "定义 odd_numbers(stop)：使用 yield，按从小到大产生 0 <= number < stop 的奇数。实现 collect_odds(stop)：返回 list(odd_numbers(stop)) 供判题调用。stop 是不小于 0 的整数，终点不包含。",
+          "starter_code": "def odd_numbers(stop):\n    # 使用 yield 产生数字\n    pass\n\n\ndef collect_odds(stop):\n    return list(odd_numbers(stop))\n",
+          "hints": [
+            "range(stop) 自然不包含 stop。",
+            "奇数满足 number % 2 == 1。",
+            "在条件成立时 yield number，再用包装函数收集。"
+          ],
+          "solution": "def odd_numbers(stop):\n    for number in range(stop):\n        if number % 2 == 1:\n            yield number\n\n\ndef collect_odds(stop):\n    return list(odd_numbers(stop))\n",
+          "wrong_solution": "def odd_numbers(stop):\n    for number in range(stop + 1):\n        if number % 2 == 1:\n            yield number\n\n\ndef collect_odds(stop):\n    return list(odd_numbers(stop))\n",
+          "kind": "function",
+          "function_name": "collect_odds",
+          "tests": [
+            {
+              "name": "偶数终点",
+              "args": [
+                8
+              ],
+              "expected": [
+                1,
+                3,
+                5,
+                7
+              ]
+            },
+            {
+              "name": "奇数终点",
+              "args": [
+                7
+              ],
+              "expected": [
+                1,
+                3,
+                5
+              ]
+            },
+            {
+              "name": "终点为零",
+              "args": [
+                0
+              ],
+              "expected": []
+            },
+            {
+              "name": "终点为一",
+              "args": [
+                1
+              ],
+              "expected": []
+            }
+          ],
+          "required_structure": {
+            "function": "odd_numbers",
+            "node": "Yield"
+          },
+          "structure_message": "请在 odd_numbers 中使用 yield 生成数字。"
+        },
+        {
+          "id": "week-9-ex-3",
+          "unit_id": "week-9",
+          "source_type": "original",
+          "title": "用 argparse 定制鼓励语",
+          "prompt": "使用 argparse：--name 默认“同学”；--repeat 为整数，默认 1。输出 repeat 行“加油，name！”，每行换行。repeat 由测试保证不小于 0；为 0 时不输出。没有标准输入。不要输出参数调试信息。",
+          "starter_code": "import argparse\n\nparser = argparse.ArgumentParser()\n# 定义参数并读取\n",
+          "hints": [
+            "为两个参数调用 add_argument，repeat 指定 type=int。",
+            "parse_args 得到的对象含 name 和 repeat 属性。",
+            "循环 range(args.repeat)，每轮 print 一行即可；0 会自然没有循环。"
+          ],
+          "solution": "import argparse\n\nparser = argparse.ArgumentParser()\nparser.add_argument(\"--name\", default=\"同学\")\nparser.add_argument(\"--repeat\", type=int, default=1)\nargs = parser.parse_args()\nfor _ in range(args.repeat):\n    print(f\"加油，{args.name}！\")\n",
+          "wrong_solution": "import argparse\n\nparser = argparse.ArgumentParser()\nparser.add_argument(\"--name\", default=\"同学\")\nparser.add_argument(\"--repeat\", type=int, default=1)\nargs = parser.parse_args()\nfor _ in range(args.repeat + 1):\n    print(f\"加油，{args.name}！\")\n",
+          "kind": "stdout",
+          "tests": [
+            {
+              "name": "使用默认值",
+              "stdin": "",
+              "argv": [],
+              "expected": "加油，同学！\n"
+            },
+            {
+              "name": "自定义姓名与次数",
+              "stdin": "",
+              "argv": [
+                "--name",
+                "小林",
+                "--repeat",
+                "2"
+              ],
+              "expected": "加油，小林！\n加油，小林！\n"
+            },
+            {
+              "name": "零次不输出",
+              "stdin": "",
+              "argv": [
+                "--repeat",
+                "0"
+              ],
+              "expected": ""
+            },
+            {
+              "name": "参数顺序可交换",
+              "stdin": "",
+              "argv": [
+                "--repeat",
+                "1",
+                "--name",
+                "A"
+              ],
+              "expected": "加油，A！\n"
+            }
+          ],
+          "required_structure": {
+            "import": "argparse"
+          },
+          "structure_message": "请使用 argparse 解析命令行参数。"
+        }
+      ]
+    },
+    {
+      "unit_id": "final-project",
+      "points": [
+        {
+          "title": "先确定你要解决的小问题",
+          "body": "从你遇到过的重复任务出发，写下“谁在什么情况下，需要程序帮忙做什么”。例子可以是整理学习记录、处理个人文件或分析一个小表格；选题由你自己决定。"
+        },
+        {
+          "title": "让范围能被验收",
+          "body": "列出输入、输出、三项必须完成的功能以及暂时不做的事情。为每项功能给一个具体例子；先做到可以完整走通，再增加便利功能。"
+        },
+        {
+          "title": "按官方要求安排项目结构",
+          "body": "核查时官方要求根目录 project.py 内有 main 和至少三个同层级的自定义函数，并在 test_project.py 为至少三个自定义函数编写 pytest 测试；可按需要增加类和文件。具体要求以官方最终项目页为准。"
+        },
+        {
+          "title": "写清依赖、说明和演示",
+          "body": "requirements.txt 每行列出一个需要安装的依赖；README 写清项目用途、文件分工、用法和设计选择。官方提交还要求简短演示及提交步骤，本工作台的本地检查不能代替官方提交。"
+        },
+        {
+          "title": "用独立完成检验学习成果",
+          "body": "先自己描述方案、尝试实现和运行测试，再按需查看资料或讨论报错。模板里的 TODO 需要你完成；它没有实现某个现成最终项目。"
+        }
+      ],
+      "examples": [
+        {
+          "id": "final-project-example-1",
+          "title": "把项目约定写成结构化清单",
+          "code": "plan = {\n    \"problem\": \"填写你自己的问题\",\n    \"input\": \"填写输入来源和格式\",\n    \"output\": \"填写期望结果\",\n    \"must_have\": [\"功能一\", \"功能二\", \"功能三\"],\n}\nfor key, value in plan.items():\n    print(f\"{key}: {value}\")\n"
+        },
+        {
+          "id": "final-project-example-2",
+          "title": "查看最终项目结构模板",
+          "code": "def main():\n    print(\"最终项目模板：先写下自己的目标，再逐个实现函数。\")\n\n\ndef load_data(path):\n    \"\"\"TODO：约定数据来源与读取失败时的行为。\"\"\"\n    raise NotImplementedError(\"请自行实现数据读取\")\n\n\ndef process_data(data):\n    \"\"\"TODO：把主要业务规则写成可独立测试的函数。\"\"\"\n    raise NotImplementedError(\"请自行实现处理规则\")\n\n\ndef format_result(result):\n    \"\"\"TODO：明确返回的文字或数据格式。\"\"\"\n    raise NotImplementedError(\"请自行实现结果格式\")\n\n\nif __name__ == \"__main__\":\n    main()\n",
+          "files": {
+            "test_project.py": "# 自主实现至少三个函数后，为每个函数填写有意义的 pytest 测试。\n# 测试正常输入、边界输入和你决定如何处理的无效输入。\n# from project import load_data, process_data, format_result\n",
+            "requirements.txt": "# 仅列出你实际使用的第三方依赖，每行一个。\n",
+            "README.md": "# 我的 Python 最终项目\n\n## 解决的问题\n待填写。\n\n## 使用方式\n待填写。\n\n## 文件说明\n待填写。\n\n## 测试方式\npython -m pytest\n\n## 设计决定\n待填写。\n\n## Video Demo\n完成后填写演示链接。\n"
+          }
+        }
+      ],
+      "template_files": {
+        "project.py": "def main():\n    print(\"最终项目模板：先写下自己的目标，再逐个实现函数。\")\n\n\ndef load_data(path):\n    \"\"\"TODO：约定数据来源与读取失败时的行为。\"\"\"\n    raise NotImplementedError(\"请自行实现数据读取\")\n\n\ndef process_data(data):\n    \"\"\"TODO：把主要业务规则写成可独立测试的函数。\"\"\"\n    raise NotImplementedError(\"请自行实现处理规则\")\n\n\ndef format_result(result):\n    \"\"\"TODO：明确返回的文字或数据格式。\"\"\"\n    raise NotImplementedError(\"请自行实现结果格式\")\n\n\nif __name__ == \"__main__\":\n    main()\n",
+        "test_project.py": "# TODO：为至少三个自定义函数编写 pytest 测试。\n",
+        "requirements.txt": "# TODO：每行列出一个实际使用的第三方依赖。\n",
+        "README.md": "# 我的 Python 最终项目\n\n请自行补充项目用途、运行方法、文件说明、测试、设计选择和演示链接。\n"
+      },
+      "exercises": []
+    }
+  ]
+}
